@@ -1,0 +1,129 @@
+﻿<Window x:Class="QuanLyNhaTro_DACSN.HoaDon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyNhaTro_DACSN"
+        mc:Ignorable="d"
+        Title="Hóa đơn" Height="550" Width="800"
+        xmlns:uc="clr-namespace:QuanLyNhaTro_DACSN.UserControlBN"
+ 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Name="nHoaDon"
+        WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+ 
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+     DataContext="{StaticResource MainVM}"
+     ResizeMode="NoResize"
+     WindowStyle="None">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:UserBarUC Tag="{Binding Title, ElementName=nHoaDon}"></uc:UserBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <materialDesign:Card Grid.Row="0" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Column="0" Grid.Row="0"
+                        Margin="20"
+                        materialDesign:HintAssist.Hint="Tên Phòng"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        VerticalAlignment="Center"
+                        Text="{Binding DisplayNameKT}"/>
+                    <DatePicker Grid.Row="0" Grid.Column="1" Margin="20 20 20 7"
+                                        
+                                Width="2000"
+                                materialDesign:HintAssist.Hint="Ngày thanh toán"
+                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <TextBox Grid.Column="1" Grid.Row="1"
+                        Margin="20"
+                        Text="{Binding DisplaySDT}"
+                        materialDesign:HintAssist.Hint="Số nước (m3)"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        VerticalAlignment="Center" />
+                    <TextBox Grid.Column="0" Grid.Row="1"
+                        Margin="20" 
+                        Text="{Binding DisplayPass}"
+                        materialDesign:HintAssist.Hint="Số điện (kWh)"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        VerticalAlignment="Center" />
+                    <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="20">
+                        <WrapPanel.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Margin" Value="0 5 0 0"></Setter>
+                            </Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="BorderBrush" Value="BlanchedAlmond"></Setter>
+                                <Setter Property="BorderThickness" Value="2"></Setter>
+                                <Setter Property="Width" Value="90" ></Setter>
+                                <Setter Property="Height" Value="25"></Setter>
+                            </Style>
+                        </WrapPanel.Resources>
+                        <TextBlock Margin="0 5 0 0" Text="Tổng tiền = Tiền phòng "></TextBlock>
+                        <TextBox BorderBrush="BlanchedAlmond" BorderThickness="2" Width="90" ></TextBox>
+                        <TextBlock Text="+ Tiền điện " ></TextBlock>
+                        <TextBox BorderBrush="BlanchedAlmond" BorderThickness="2" Width="90" VerticalAlignment="Center"></TextBox>
+                        <TextBlock Text="+ Tiền nước "></TextBlock>
+                        <TextBox BorderBrush="BlanchedAlmond" BorderThickness="2" Width="90" VerticalAlignment="Center"></TextBox>
+                        <TextBlock Text="+ Tiền dịch vụ "></TextBlock>
+                        <TextBox BorderBrush="BlanchedAlmond" BorderThickness="2"  Width="90" VerticalAlignment="Center"></TextBox>
+                        <TextBlock Text="=   " Margin="58 20 0 10"></TextBlock>
+                        <TextBox FontWeight="DemiBold" FontSize="15" Height="25" BorderThickness="0" Margin="0 15 0 0" TextDecorations="Underline"></TextBox>
+                    </WrapPanel>
+                </Grid>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="1" Margin="5">
+                <WrapPanel HorizontalAlignment="Center">
+                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 5 60 5" Width="100"></Button>
+                    <Button Command="{Binding EditCommand}" Content="Xóa" Margin="0 5 60 5" Width="100"></Button>
+                    <Button Command="{Binding DeleteCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                <!--List dai keo qua duoc-->
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <!--Onewaytosource data thay doi thi source thay doi theo nhung khong nguoc lai-->
+                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Tên phòng" DisplayMemberBinding="{Binding DisplayNameKT}"></GridViewColumn>
+                                <GridViewColumn Header="Tiền điện" DisplayMemberBinding="{Binding DisplayCMND}"></GridViewColumn>
+                                <GridViewColumn Header="Tiền nước" DisplayMemberBinding="{Binding DisplaySDT}"></GridViewColumn>
+                                <GridViewColumn Header="Tiền dịch vụ" DisplayMemberBinding="{Binding DisplayPass}"></GridViewColumn>
+                                <GridViewColumn Header="Tổng cộng" DisplayMemberBinding="{Binding DisplaySex}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+
+        </Grid>
+    </Grid>
+</Window>

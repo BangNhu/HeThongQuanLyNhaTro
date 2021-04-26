@@ -1,0 +1,106 @@
+﻿<Window x:Class="QuanLyNhaTro_DACSN.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:QuanLyNhaTro_DACSN.UserControlBN"
+        xmlns:local="clr-namespace:QuanLyNhaTro_DACSN"
+        mc:Ignorable="d"
+         WindowStartupLocation="CenterScreen"
+        Title="Đăng nhập" Height="550" Width="800"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+          ResizeMode="NoResize"
+     WindowStyle="None"
+     Name="nLogin"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}">
+   
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:UserBarUC  Tag="{Binding Title, ElementName=nLogin}"></uc:UserBarUC>
+        </Grid>
+        <materialDesign:Card Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="300">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    Grid.Row="0"
+                    FontSize="30"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontWeight="SemiBold"
+                    Foreground="#9933FF">ĐĂNG NHẬP</TextBlock>
+                <StackPanel Grid.Row="1">
+                    <TextBox
+                        Style="{StaticResource MaterialDesignFilledTextBox}"
+                        VerticalAlignment="Top"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        MaxWidth="400"
+                        FontSize="15"
+                        materialDesign:HintAssist.Hint="Tài khoản"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2">
+
+                    <PasswordBox
+                        Style="{StaticResource MaterialDesignFilledPasswordBox}"
+                        VerticalAlignment="Top"
+                        MaxWidth="400"
+                        FontSize="15"
+                        materialDesign:HintAssist.Hint="Mật khẩu">
+                        
+
+                    </PasswordBox>
+                    <!--<materialDesign:PackIcon Kind="Eye" />-->
+                </StackPanel>
+                <WrapPanel Grid.Row="3" VerticalAlignment="Center">
+                    <CheckBox Margin="100 0 0 0"
+                          IsChecked="True"
+                          FontSize="15"
+                          Content="Nhớ tài khoản"
+                          Style="{StaticResource MaterialDesignDarkCheckBox}" />
+                    <TextBlock
+                        FontSize="15"
+                        FontFamily="Tamaha"
+                        Width="200"
+                        Height="20"
+                        Background="White"
+                        Margin="150 0 0 0">
+                        <Run TextDecorations="Underline" Foreground="Blue">Quên mật khẩu?</Run>
+                    </TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button
+                          FontSize="15"
+                          Style="{StaticResource MaterialDesignRaisedButton}"
+                          Content="_Đăng nhập" 
+                          Margin="0 0 20 0"/>
+                        
+                    <Button
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        MinWidth="100"
+                        FontSize="15"
+                        Content="_Thoát" />
+
+                </WrapPanel>
+            </Grid>
+
+        </materialDesign:Card>
+    </Grid>
+</Window>
