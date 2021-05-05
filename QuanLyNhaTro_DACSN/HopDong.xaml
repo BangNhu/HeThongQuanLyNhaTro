@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyNhaTro_DACSN"
         mc:Ignorable="d"
-        Title="Hợp đồng" Height="550" Width="800"
+        Title="Hợp đồng" Height="600" Width="800"
         Name="nHopDong"
         xmlns:uc="clr-namespace:QuanLyNhaTro_DACSN.UserControlBN"
  
@@ -20,7 +20,7 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-     DataContext="{StaticResource MainVM}"
+     DataContext="{StaticResource HopDongVM}"
      ResizeMode="NoResize"
      WindowStyle="None">
         
@@ -29,10 +29,17 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.RowSpan="2">
+            <uc:UserMenuUC></uc:UserMenuUC>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
             <uc:UserBarUC Tag="{Binding Title, ElementName=nHopDong}"></uc:UserBarUC>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
@@ -53,36 +60,37 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <ComboBox
-                                ItemsSource="{Binding PhongTroPT}" SelectedItem="{Binding SelectPhongTroPT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                Margin="20 10 20 7" Grid.Row="0" 
-                                  materialDesign:HintAssist.Hint="Prefix"
-                                  materialDesign:TextFieldAssist.PrefixText="$"
+                                DisplayMemberPath="TenPhong"
+                                ItemsSource="{Binding PHONG}" SelectedItem="{Binding SelectedPhong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                Margin="20 10" Grid.Row="0" 
+                                  materialDesign:HintAssist.Hint="Tên phòng"
+                                  
                                   IsEditable="True">
                                     
                              </ComboBox>
                             <TextBox Grid.Column="1" Grid.Row="0" 
-                                     Text="{Binding DisplayPricePtr, UpdateSourceTrigger=PropertyChanged}"
-                                Margin="20"
+                                     Text="{Binding TenKT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                Margin="20 10"
                                 materialDesign:HintAssist.Hint="Tên khách trọ"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                 VerticalAlignment="Center" />
-                            <DatePicker Grid.Row="1" Grid.Column="1" Margin="20 20 20 7"
-                                        
-                                Width="2000"
+                            <DatePicker Grid.Row="1" Grid.Column="1" Margin="20 5 10 7"
+                                Text="{Binding NgayKetThucHopDong, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"        
+                                Width="335"
                                 materialDesign:HintAssist.Hint="Ngày kết thúc"
                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                            <DatePicker Grid.Row="1" Grid.Column="0" Margin="20 20 20 7"
-                                        
-                                Width="2000"
+                            <DatePicker Grid.Row="1" Grid.Column="0" Margin="20 5 10 7"
+                               Text="{Binding NgayBatDauHopDong, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"            
+                                Width="335"
                                 materialDesign:HintAssist.Hint="Ngày bắt đầu"
                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                             <TextBox Grid.Column="2" Grid.Row="2"
-                                     Text="{Binding DisplayPricePtr, UpdateSourceTrigger=PropertyChanged}"
-                                Margin="20"
-                                materialDesign:HintAssist.Hint="Đơn giá"
+                                     Text="{Binding TienDatCoc, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                Margin="20 10"
+                                materialDesign:HintAssist.Hint="Tiền đặt cọc"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                 VerticalAlignment="Center" />
-                            <TextBlock Grid.Row="2" Grid.Column="0"
+                            <!--<TextBlock Grid.Row="2" Grid.Column="0"
                                 Margin="20 0 0 0"
                                 VerticalAlignment="Center"
                                 Text="Chọn dịch vụ: "></TextBlock>
@@ -123,7 +131,39 @@
                                     IsChecked="True"
                                     Content="Gửi xe máy"
                                     Style="{StaticResource MaterialDesignLightCheckBox}" />
-                            </WrapPanel>
+                            </WrapPanel>-->
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2">
+                                <TextBlock Margin="20 0">Chọn dịch vụ:</TextBlock>
+                                <WrapPanel>
+                                    <ComboBox Grid.Row="0" Grid.Column="1" DisplayMemberPath="TenDV"
+                              ItemsSource="{Binding DichVu}" SelectedItem="{Binding SelectedDichVu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              Margin="20 5 0 7" Width="280" HorizontalAlignment="Left"
+                              materialDesign:HintAssist.Hint="Dịch vụ"
+                              
+                              IsEditable="True"></ComboBox>
+                                    <Button Margin=" 10 0 0 0" Command="{Binding ChonCommand}"
+                                  Style="{StaticResource MaterialDesignFlatButton}"
+                                  ToolTip="Chọn dịch vụ"
+                                  Content="Chọn" />
+                                    <Button Command="{Binding BoChonCommand}"
+                                  Style="{StaticResource MaterialDesignFlatButton}"
+                                  ToolTip="Chọn dịch vụ"
+                                  Content="Bỏ chọn" />
+                                </WrapPanel>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <Grid Height="120">
+                                        <ListView ItemsSource="{Binding ServicesByRoom, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedSD_DichVu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="Dịch vụ đã chọn"
+                                                             DisplayMemberBinding="{Binding DICHVU.TenDV }"></GridViewColumn>
+
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                    </Grid>
+                                </ScrollViewer>
+                            </StackPanel>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -132,8 +172,8 @@
             <materialDesign:Card Grid.Row="1" Margin="5">
                 <WrapPanel HorizontalAlignment="Center">
                     <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 5 60 5" Width="100"></Button>
-                    <Button Command="{Binding EditCommand}" Content="xóa" Margin="0 5 60 5" Width="100"></Button>
-                    <Button Command="{Binding DeleteCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                    <Button Command="{Binding DeleteCommand}" Content="Xoá" Margin="0 5 60 5" Width="100"></Button>
                 </WrapPanel>
             </materialDesign:Card>
 
@@ -141,14 +181,15 @@
                 <!--List dai keo qua duoc-->
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <!--Onewaytosource data thay doi thi source thay doi theo nhung khong nguoc lai-->
+                    
                     <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Phòng" DisplayMemberBinding="{Binding DisplayNameP}"></GridViewColumn>
-                                <GridViewColumn Header="Tên khách trọ"  DisplayMemberBinding="{Binding DisplayNameKT}"></GridViewColumn>
-                                <GridViewColumn Header="Ngày bắt đầu"  DisplayMemberBinding="{Binding DisplayDateBH}"></GridViewColumn>
-                                <GridViewColumn Header="Ngày kết thúc"  DisplayMemberBinding="{Binding DisplayDateTH}"></GridViewColumn>
-                                <GridViewColumn Header="Đơn giá"  DisplayMemberBinding="{Binding DisplayPriceHD}"></GridViewColumn>
+                                <GridViewColumn Header="Phòng" DisplayMemberBinding="{Binding PHONG.TenPhong}"></GridViewColumn>
+                                <GridViewColumn Header="Tên khách trọ"  DisplayMemberBinding="{Binding KhachTro.TenKT}"></GridViewColumn>
+                                <GridViewColumn Header="Ngày bắt đầu"  DisplayMemberBinding="{Binding NgayBatDauHopDong, StringFormat=dd/MM/yyyy}"></GridViewColumn>
+                                <GridViewColumn Header="Ngày kết thúc"  DisplayMemberBinding="{Binding NgayKetThucHopDong, StringFormat=dd/MM/yyyy}"></GridViewColumn>
+                                <GridViewColumn Header="Tiền cọc"  DisplayMemberBinding="{Binding TienDatCoc}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

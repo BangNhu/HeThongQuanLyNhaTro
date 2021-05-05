@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:QuanLyNhaTro_DACSN.UserControlBN" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              x:Name="ucControlBar"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="60" d:DesignWidth="800">
     
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -29,7 +29,7 @@
                           Margin="0 0 10 0"
                           ToolTip="Minisize"
                           ToolBar.OverflowMode="AsNeeded"
-                          Content="{materialDesign:PackIcon Kind=WindowMinimize}" />
+                          Content="{materialDesign:PackIcon Kind=WindowMinimize}" Click="Button_Click" />
                     <Button
                         Command="{Binding MaximizeWindowCommand}"
                           CommandParameter="{Binding ElementName= ucControlBar}"
@@ -46,11 +46,17 @@
                           ToolBar.OverflowMode="AsNeeded"
                           Content="{materialDesign:PackIcon Kind=WindowClose}" />
                 </StackPanel>
-                <StackPanel
+                <StackPanel VerticalAlignment="Center"
                     Orientation="Horizontal" DockPanel.Dock="Left">
-                    <ToggleButton
-                        Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
-                        <TextBlock
+                       <Button 
+                      Style="{StaticResource MaterialDesignIconButton}"
+                      ToolTip="Trang Chủ" Foreground="White" Width="30" Height='30'
+                      Background="{DynamicResource MaterialDesignTextFieldBoxBackground}">
+                           
+                                            <materialDesign:PackIcon
+                        Kind="Home" />
+                    </Button>
+                    <TextBlock
                             VerticalAlignment="Center"
                             FontSize="15"
                             Margin="16 0 0 0"

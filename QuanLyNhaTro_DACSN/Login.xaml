@@ -6,6 +6,7 @@
         xmlns:uc="clr-namespace:QuanLyNhaTro_DACSN.UserControlBN"
         xmlns:local="clr-namespace:QuanLyNhaTro_DACSN"
         mc:Ignorable="d"
+        DataContext="{StaticResource LoginVM}"
          WindowStartupLocation="CenterScreen"
         Title="Đăng nhập" Height="550" Width="800"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -20,9 +21,11 @@
      Name="nLogin"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
-   
+
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="Đôi-nét-về-hợp-đồng-thuê-nhà-trọ.jpg"></ImageBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -30,13 +33,14 @@
         <Grid Grid.Row="0">
             <uc:UserBarUC  Tag="{Binding Title, ElementName=nLogin}"></uc:UserBarUC>
         </Grid>
-        <materialDesign:Card Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="300">
+        <materialDesign:Card Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="450" Height="300">
             <Grid>
+                
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition ></RowDefinition>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <TextBlock 
@@ -47,54 +51,55 @@
                     FontWeight="SemiBold"
                     Foreground="#9933FF">ĐĂNG NHẬP</TextBlock>
                 <StackPanel Grid.Row="1">
-                    <TextBox
+                    <TextBox 
+                        Text="{Binding UserName}"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
                         VerticalAlignment="Top"
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
-                        MaxWidth="400"
+                        MaxWidth="350"
                         FontSize="15"
                         materialDesign:HintAssist.Hint="Tài khoản"/>
                 </StackPanel>
                 <StackPanel Grid.Row="2">
 
                     <PasswordBox
+                        x:Name="FloatingPasswordBox"
                         Style="{StaticResource MaterialDesignFilledPasswordBox}"
                         VerticalAlignment="Top"
-                        MaxWidth="400"
+                        MaxWidth="350"
                         FontSize="15"
                         materialDesign:HintAssist.Hint="Mật khẩu">
-                        
 
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PasswordChanged">
+                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" CommandParameter="{Binding ElementName=FloatingPasswordBox}"
+                          />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </PasswordBox>
                     <!--<materialDesign:PackIcon Kind="Eye" />-->
                 </StackPanel>
                 <WrapPanel Grid.Row="3" VerticalAlignment="Center">
-                    <CheckBox Margin="100 0 0 0"
+                    <CheckBox Margin="50 0 0 0"
                           IsChecked="True"
                           FontSize="15"
                           Content="Nhớ tài khoản"
                           Style="{StaticResource MaterialDesignDarkCheckBox}" />
-                    <TextBlock
-                        FontSize="15"
-                        FontFamily="Tamaha"
-                        Width="200"
-                        Height="20"
-                        Background="White"
-                        Margin="150 0 0 0">
-                        <Run TextDecorations="Underline" Foreground="Blue">Quên mật khẩu?</Run>
-                    </TextBlock>
+                    <Button Command="{Binding QuenMatKhauCommand}" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="0" Margin="100 0 0 0" >
+                        <Run TextDecorations="Underline" Foreground="DarkBlue">Quên mật khẩu</Run></Button>
                 </WrapPanel>
-                <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button
+                <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 8 0 0" >
+                    <Button Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=nLogin}"
                           FontSize="15"
+                          IsDefault="True"
                           Style="{StaticResource MaterialDesignRaisedButton}"
                           Content="_Đăng nhập" 
                           Margin="0 0 20 0"/>
                         
                     <Button
                         Style="{StaticResource MaterialDesignRaisedButton}"
-                        MinWidth="100"
+                        MinWidth="100" Command="{Binding LogoutCommand}" CommandParameter="{Binding ElementName=nLogin}"
                         FontSize="15"
                         Content="_Thoát" />
 

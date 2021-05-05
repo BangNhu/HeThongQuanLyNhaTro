@@ -18,19 +18,27 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-     DataContext="{StaticResource MainVM}"
+     DataContext="{StaticResource PhongTroVM}"
      ResizeMode="NoResize"
      WindowStyle="None">
+     
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.RowSpan="2">
+                <uc:UserMenuUC></uc:UserMenuUC>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
                 <uc:UserBarUC Tag="{Binding Title, ElementName=nPhongTro}"></uc:UserBarUC>
             </Grid>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -43,6 +51,7 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
@@ -51,41 +60,51 @@
                             
                             <TextBox Grid.Column="0" Grid.Row="0"
                       
-                                Margin="20"
+                                Margin="20 10"
                                 materialDesign:HintAssist.Hint="Tên phòng"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                 VerticalAlignment="Center"
-                                Text="{Binding DisplayStatus, UpdateSourceTrigger=PropertyChanged}"/>
-                            <TextBox Grid.Column="0" Grid.Row="1"
-                                Margin="20"
+                                Text="{Binding TenPhong, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                           <!-- <TextBox Grid.Column="0" Grid.Row="1"
+                                Margin="20 10"
+                                Text="{Binding TrangThai, UpdateSourceTrigger=PropertyChanged}"
                                 materialDesign:HintAssist.Hint="Trạng thái"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                VerticalAlignment="Center" />
-                            <ComboBox Grid.Row="0" Grid.Column="1"
-                              ItemsSource="{Binding KhuTroPT}" SelectedItem="{Binding SelectKhuTroKT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                VerticalAlignment="Center" />-->
+                            <ComboBox Grid.Row="0" Grid.Column="1" DisplayMemberPath="TenKhuTro"
+                              ItemsSource="{Binding KhuTro}" SelectedItem="{Binding SelectedKhuTro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               Margin="20 20 20 7"
+                              
                               materialDesign:HintAssist.Hint="Khu trọ"
                               
                               IsEditable="True"></ComboBox>
 
                                 <TextBox Grid.Column="1" Grid.Row="1"
-                                     Text="{Binding DisplayPricePtr, UpdateSourceTrigger=PropertyChanged}"
-                                Margin="20"
+                                     Text="{Binding DonGiaPhong, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                Margin="20 10"
                                 materialDesign:HintAssist.Hint="Đơn giá"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                 VerticalAlignment="Center" />
-                            <TextBox Grid.Column="0" Grid.Row="2"
-                                     Text="{Binding DisplaySLTD, UpdateSourceTrigger=PropertyChanged}"
-                                Margin="20"
+                            <TextBox Grid.Column="0" Grid.Row="1"
+                                     Text="{Binding SoLgToiDa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                Margin="20 10"
                                 materialDesign:HintAssist.Hint="Số người tối đa"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                 VerticalAlignment="Center" />
-                            <TextBox Grid.Column="1" Grid.Row="2"
-                                     Text="{Binding DisplaySLHT, UpdateSourceTrigger=PropertyChanged}"
-                                Margin="20"
+                           <!-- <TextBox Grid.Column="0" Grid.Row="1"
+                                     Text="{Binding SoLgHienTai, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                Margin="20 10"
                                 materialDesign:HintAssist.Hint="Số người hiện tại"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                VerticalAlignment="Center" />
+                                VerticalAlignment="Center" />-->
+                           <!-- <WrapPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical">
+                                <TextBlock FontSize="13" Margin="20 0 0 0">Trạng thái:</TextBlock>
+                                <CheckBox Margin="70 10 10 5" Grid.Row="3" Grid.Column="0"
+                                  FontSize="15"
+                                  x:Name="TrangThaiThue"
+                                  Content="Đã được thuê"
+                                  Style="{StaticResource MaterialDesignDarkCheckBox}" />
+                            </WrapPanel>-->
                         </Grid>
                     </Grid>
                 </materialDesign:Card>
@@ -93,8 +112,8 @@
                 <materialDesign:Card Grid.Row="1" Margin="5">
                     <WrapPanel HorizontalAlignment="Center">
                         <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 5 60 5" Width="100"></Button>
-                        <Button Command="{Binding EditCommand}" Content="Xóa" Margin="0 5 60 5" Width="100" Click="Button_Click"></Button>
-                        <Button Command="{Binding DeleteCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                        <Button Command="{Binding EditCommand}" Content="Sửa" Margin="0 5 60 5" Width="100" Click="Button_Click"></Button>
+                        <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="0 5 60 5" Width="100"></Button>
                     </WrapPanel>
                 </materialDesign:Card>
 
@@ -105,12 +124,13 @@
                         <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Tên Phòng trọ" DisplayMemberBinding="{Binding DisplayNamePtr}"></GridViewColumn>
-                                    <GridViewColumn Header="Khu trọ"  DisplayMemberBinding="{Binding DisplayNameKtr}"></GridViewColumn>
-                                    <GridViewColumn Header="Trạng thái"  DisplayMemberBinding="{Binding DisplayStatus}"></GridViewColumn>
-                                    <GridViewColumn Header="Đơn giá"  DisplayMemberBinding="{Binding DisplayNameStatus}"></GridViewColumn>
-                                    <GridViewColumn Header="Số người tối đa"  DisplayMemberBinding="{Binding DisplayNameSLTD}"></GridViewColumn>
-                                    <GridViewColumn Header="Số người hiện tại"  DisplayMemberBinding="{Binding DisplayNameSLHT}"></GridViewColumn>
+                                    <GridViewColumn Header="Tên Phòng trọ" DisplayMemberBinding="{Binding TenPhong}"></GridViewColumn>
+                                    <GridViewColumn Header="Khu trọ"  DisplayMemberBinding="{Binding Khutro.TenKhuTro}"></GridViewColumn>
+                                   <!-- <GridViewColumn Header="Trạng thái"  DisplayMemberBinding="{Binding TrangThai}"></GridViewColumn>-->
+                                    <GridViewColumn Header="Đơn giá"  DisplayMemberBinding="{Binding DonGiaPhong}"></GridViewColumn>
+                                    <GridViewColumn Header="Số người tối đa"  DisplayMemberBinding="{Binding SoLgToiDa}"></GridViewColumn>
+                                    <!-- <GridViewColumn Header="Số người hiện tại"  DisplayMemberBinding="{Binding SoLgHienTai}"></GridViewColumn>-->
+
                                 </GridView>
                             </ListView.View>
                         </ListView>

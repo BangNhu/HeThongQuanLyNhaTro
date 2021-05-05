@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyNhaTro_DACSN"
         mc:Ignorable="d"
-        Title="Hóa đơn" Height="550" Width="800"
+        Title="Hóa đơn" Height="650" Width="800"
         xmlns:uc="clr-namespace:QuanLyNhaTro_DACSN.UserControlBN"
  
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -22,16 +22,23 @@
      DataContext="{StaticResource MainVM}"
      ResizeMode="NoResize"
      WindowStyle="None">
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.RowSpan="2">
+            <uc:UserMenuUC></uc:UserMenuUC>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
             <uc:UserBarUC Tag="{Binding Title, ElementName=nHoaDon}"></uc:UserBarUC>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
@@ -39,90 +46,116 @@
             </Grid.RowDefinitions>
             <materialDesign:Card Grid.Row="0" Margin="5">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
+                    <WrapPanel Grid.Row="0">
+                        <ComboBox
+                            DisplayMemberPath="TenKhuTro"
+                              ItemsSource="{Binding KhuTro, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedKhuTro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Width="100" Margin="40 10 40 10"
+                          materialDesign:HintAssist.Hint="Nhà Trọ"
+                          materialDesign:HintAssist.HintOpacity=".26"
+                          IsEditable="True">
+                        </ComboBox>
+                        <ComboBox
+                            DisplayMemberPath="TenPhong"
+                                ItemsSource="{Binding PHONG, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedPhong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             Width="100" Margin="40 10 40 10"
+                          materialDesign:HintAssist.Hint="Phòng trọ"
+                          materialDesign:HintAssist.HintOpacity=".26"
+                          IsEditable="True">
+                        </ComboBox>
+                        <DatePicker Grid.Row="0" Grid.Column="1" Margin="40 5 10 7"
 
-                    <TextBox Grid.Column="0" Grid.Row="0"
-                        Margin="20"
-                        materialDesign:HintAssist.Hint="Tên Phòng"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        VerticalAlignment="Center"
-                        Text="{Binding DisplayNameKT}"/>
-                    <DatePicker Grid.Row="0" Grid.Column="1" Margin="20 20 20 7"
-                                        
-                                Width="2000"
-                                materialDesign:HintAssist.Hint="Ngày thanh toán"
+                                Text="{Binding NgayGhiDienNuoc, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"        
+                                Width="150"
+                                materialDesign:HintAssist.Hint="Ngày ghi hóa đơn"
                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                    <TextBox Grid.Column="1" Grid.Row="1"
-                        Margin="20"
-                        Text="{Binding DisplaySDT}"
-                        materialDesign:HintAssist.Hint="Số nước (m3)"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        VerticalAlignment="Center" />
-                    <TextBox Grid.Column="0" Grid.Row="1"
-                        Margin="20" 
-                        Text="{Binding DisplayPass}"
-                        materialDesign:HintAssist.Hint="Số điện (kWh)"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        VerticalAlignment="Center" />
-                    <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="20">
-                        <WrapPanel.Resources>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="Margin" Value="0 5 0 0"></Setter>
-                            </Style>
-                            <Style TargetType="TextBox">
-                                <Setter Property="BorderBrush" Value="BlanchedAlmond"></Setter>
-                                <Setter Property="BorderThickness" Value="2"></Setter>
-                                <Setter Property="Width" Value="90" ></Setter>
-                                <Setter Property="Height" Value="25"></Setter>
-                            </Style>
-                        </WrapPanel.Resources>
-                        <TextBlock Margin="0 5 0 0" Text="Tổng tiền = Tiền phòng "></TextBlock>
-                        <TextBox BorderBrush="BlanchedAlmond" BorderThickness="2" Width="90" ></TextBox>
-                        <TextBlock Text="+ Tiền điện " ></TextBlock>
-                        <TextBox BorderBrush="BlanchedAlmond" BorderThickness="2" Width="90" VerticalAlignment="Center"></TextBox>
-                        <TextBlock Text="+ Tiền nước "></TextBlock>
-                        <TextBox BorderBrush="BlanchedAlmond" BorderThickness="2" Width="90" VerticalAlignment="Center"></TextBox>
-                        <TextBlock Text="+ Tiền dịch vụ "></TextBlock>
-                        <TextBox BorderBrush="BlanchedAlmond" BorderThickness="2"  Width="90" VerticalAlignment="Center"></TextBox>
-                        <TextBlock Text="=   " Margin="58 20 0 10"></TextBlock>
-                        <TextBox FontWeight="DemiBold" FontSize="15" Height="25" BorderThickness="0" Margin="0 15 0 0" TextDecorations="Underline"></TextBox>
+
                     </WrapPanel>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46*"></ColumnDefinition>
+                            <ColumnDefinition Width="320*"/>
+                            <ColumnDefinition Width="365*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <GroupBox Grid.Column="1" Header="Tiền điện" Width="250" Margin="12.4,10,57.6,10">
+                            <StackPanel>
+                                <WrapPanel>
+                                    <TextBlock Margin="10 10 25 10">Chỉ số cũ:</TextBlock>
+                                    <TextBox Text="{Binding ChiSoCu , UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalContentAlignment="Center" Width="100"></TextBox>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <TextBlock Margin="10 10 16.5 10">Chỉ số mới:</TextBlock>
+                                    <TextBox Text="{Binding ChiSoMoi, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalContentAlignment="Center" Width="100"></TextBox>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <TextBlock  Margin="10 10 11 10">Chỉ tiêu thụ:</TextBlock>
+                                    <TextBox Text="{Binding ChiSoTieuThu, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalContentAlignment="Center" Width="100"></TextBox>
+                                </WrapPanel>
+
+                                <WrapPanel>
+                                    <TextBlock  Margin="10 10 34 10">Giá tiền:</TextBlock>
+                                    <TextBox Text="{Binding GiaDien, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" BorderThickness="0" VerticalContentAlignment="Center" Width="100"></TextBox>
+                                </WrapPanel>
+                            </StackPanel>
+                        </GroupBox >
+                        <GroupBox Grid.Column="2" Header="Tiền nước" Width="250" Margin="57.4,10">
+                            <StackPanel>
+                                <WrapPanel>
+                                    <TextBlock Margin="10 10 25 10">Chỉ số cũ:</TextBlock>
+                                    <TextBox Text="{Binding ChiSoCun , UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalContentAlignment="Center" Width="100"></TextBox>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <TextBlock Margin="10 10 16.5 10">Chỉ số mới:</TextBlock>
+                                    <TextBox Text="{Binding ChiSoMoin, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalContentAlignment="Center" Width="100"></TextBox>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <TextBlock  Margin="10 10 11 10">Chỉ tiêu thụ:</TextBlock>
+                                    <TextBox Text="{Binding ChiSoTieuThun, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalContentAlignment="Center" Width="100"></TextBox>
+                                </WrapPanel>
+
+                                <WrapPanel>
+                                    <TextBlock  Margin="10 10 34 10">Giá tiền:</TextBlock>
+                                    <TextBox Text="{Binding GiaNuoc, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" BorderThickness="0" VerticalContentAlignment="Center" Width="100"></TextBox>
+                                </WrapPanel>
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <GroupBox Margin="20" Height="120"   Header="Dịch vụ" Width="280">
+                            <ListView  ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Tên dịch vụ" DisplayMemberBinding="{Binding TenDV}"></GridViewColumn>
+                                        <GridViewColumn Header="Đơn giá"  DisplayMemberBinding="{Binding DonGia}"></GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </GroupBox>
+                        <GroupBox Grid.Column="1" Width=" 280" FontWeight="Black" Margin="20" Header="TỔNG CỘNG">
+                            <TextBlock FontSize="30" Text="{Binding TongCong}"></TextBlock>
+
+                        </GroupBox>
+                    </Grid>
                 </Grid>
             </materialDesign:Card>
 
             <materialDesign:Card Grid.Row="1" Margin="5">
                 <WrapPanel HorizontalAlignment="Center">
-                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 5 60 5" Width="100"></Button>
-                    <Button Command="{Binding EditCommand}" Content="Xóa" Margin="0 5 60 5" Width="100"></Button>
-                    <Button Command="{Binding DeleteCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                    <Button Command="{Binding SaveCommand}" Content="Lưu" Margin="0 5 60 5" Width="100"></Button>
+                    <Button Command="{Binding ListCommand}" Content="Danh sách hóa đơn" Margin="0 5 60 5" Width="180"></Button>
                 </WrapPanel>
             </materialDesign:Card>
 
-            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
-                <!--List dai keo qua duoc-->
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <!--Onewaytosource data thay doi thi source thay doi theo nhung khong nguoc lai-->
-                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Tên phòng" DisplayMemberBinding="{Binding DisplayNameKT}"></GridViewColumn>
-                                <GridViewColumn Header="Tiền điện" DisplayMemberBinding="{Binding DisplayCMND}"></GridViewColumn>
-                                <GridViewColumn Header="Tiền nước" DisplayMemberBinding="{Binding DisplaySDT}"></GridViewColumn>
-                                <GridViewColumn Header="Tiền dịch vụ" DisplayMemberBinding="{Binding DisplayPass}"></GridViewColumn>
-                                <GridViewColumn Header="Tổng cộng" DisplayMemberBinding="{Binding DisplaySex}"></GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </ScrollViewer>
-            </materialDesign:Card>
+
 
         </Grid>
     </Grid>

@@ -18,7 +18,7 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-     DataContext="{StaticResource MainVM}"
+     DataContext="{StaticResource KhachTroVM}"
      ResizeMode="NoResize"
      WindowStyle="None">
 
@@ -29,10 +29,17 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.RowSpan="2">
+                <uc:UserMenuUC></uc:UserMenuUC>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
                 <uc:UserBarUC Tag="{Binding Title, ElementName=nKhachTro}"></uc:UserBarUC>
             </Grid>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -48,46 +55,61 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
 
                         <TextBox Grid.Column="0" Grid.Row="0"
-                        Margin="20"
+                        Margin="20 5 10 5"
                         materialDesign:HintAssist.Hint="Tên khách trọ"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center"
-                        Text="{Binding DisplayNameKT}"/>
-                        <TextBox Grid.Column="1" Grid.Row="0"
-                        Margin="20"
-                        materialDesign:HintAssist.Hint="Số chứng minh nhân dân"
+                        
+                        Text="{Binding TenKT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" TextChanged="TextBox_TextChanged"/>
+                        <TextBox Grid.Column="0" Grid.Row="3"
+                        Margin="20 5 10 5"
+                        materialDesign:HintAssist.Hint="CMND"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Text="{Binding DisplayCMND}"
+                        Text="{Binding CMND, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         VerticalAlignment="Center" />
                         <TextBox Grid.Column="1" Grid.Row="1"
-                        Margin="20"
-                        Text="{Binding DisplaySDT}"
+                        Margin="20 5 10 5"
+                        Text="{Binding SDT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         materialDesign:HintAssist.Hint="Số điện thoại"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" />
                         <TextBox Grid.Column="0" Grid.Row="1"
-                        Margin="20" 
-                        Text="{Binding DisplayPass}"
+                        Margin="20 5 10 5" 
+                        Text="{Binding MatKhau, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         materialDesign:HintAssist.Hint="Mật khẩu"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" />
                         <TextBox Grid.Column="0" Grid.Row="2"
-                        Margin="20"
-                        Text="{Binding DisplaySex}"
+                        Margin="20 5 10 5"
+                        Text="{Binding GioiTinh, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         materialDesign:HintAssist.Hint="Giới tính (Nữ/Nam)"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" />
+                        <DatePicker Grid.Row="2" Grid.Column="1" Margin="20 5 10 7"
+                                Text="{Binding NgaySinh, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"        
+                                Width="2000"
+                                materialDesign:HintAssist.Hint="Ngày sinh"
+                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                        <ComboBox Grid.Row="0" Grid.Column="1" DisplayMemberPath="TenPhong"
+                                ItemsSource="{Binding PHONG}" SelectedItem="{Binding SelectedPhong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                Margin="20 5 10 7" 
+                                  materialDesign:HintAssist.Hint="Tên phòng"
+                                  
+                                  IsEditable="True" SelectionChanged="ComboBox_SelectionChanged">
+
+                        </ComboBox>
                     </Grid>
                 </materialDesign:Card>
 
                 <materialDesign:Card Grid.Row="1" Margin="5">
                     <WrapPanel HorizontalAlignment="Center">
                         <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 5 60 5" Width="100"></Button>
-                        <Button Command="{Binding EditCommand}" Content="Xóa" Margin="0 5 60 5" Width="100"></Button>
-                        <Button Command="{Binding DeleteCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                        <Button Command="{Binding EditCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                        <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="0 5 60 5" Width="100"></Button>
                     </WrapPanel>
                 </materialDesign:Card>
 
@@ -98,11 +120,13 @@
                         <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Tên khách trọ" DisplayMemberBinding="{Binding DisplayNameKT}"></GridViewColumn>
-                                    <GridViewColumn Header="Số chứng minh nhân dân" DisplayMemberBinding="{Binding DisplayCMND}"></GridViewColumn>
-                                    <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding DisplaySDT}"></GridViewColumn>
-                                    <GridViewColumn Header="Mật khẩu" DisplayMemberBinding="{Binding DisplayPass}"></GridViewColumn>
-                                    <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding DisplaySex}"></GridViewColumn>
+                                    <GridViewColumn Header="Tên khách trọ" DisplayMemberBinding="{Binding TenKT}"></GridViewColumn>
+                                    <GridViewColumn Header="Tên phòng" DisplayMemberBinding="{Binding PHONG.TenPhong}"></GridViewColumn>
+                                    <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding CMND}"></GridViewColumn>
+                                    <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding SDT}"></GridViewColumn>
+                                    <GridViewColumn Header="Mật khẩu" DisplayMemberBinding="{Binding MatKhau}"></GridViewColumn>
+                                    <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding GioiTinh}"></GridViewColumn>
+                                    <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding NgaySinh, StringFormat=dd/MM/yyyy}"></GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>

@@ -27,5 +27,10 @@ namespace QuanLyNhaTro_DACSN.UserControlBN
             InitializeComponent();
             this.DataContext = Viewmodel = new ControlBarViewModel();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

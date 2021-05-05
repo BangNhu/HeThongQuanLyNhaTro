@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b8d20c42b3c44198695b98f87c90b9b" Name="Diagram1">
+        <EntityTypeShape EntityType="QLNhaTroModel.CHUTRO" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaTroModel.DICHVU" Width="1.5" PointX="7.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaTroModel.DienNuoc" Width="1.5" PointX="9.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaTroModel.HoaDon" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaTroModel.HOPDONG" Width="1.5" PointX="12" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaTroModel.KhachTro" Width="1.5" PointX="9.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaTroModel.Khutro" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaTroModel.NHANVIEN" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaTroModel.PHONG" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaTroModel.SD_DichVu" Width="1.5" PointX="9.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNhaTroModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="QLNhaTroModel.FK__NHANVIEN__MaChuT__5C37ACAD" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhaTroModel.FK__SD_DichVu__MaDV__78D3EB5B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhaTroModel.FK__DienNuoc__MaPT__75035A77" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhaTroModel.FK__HoaDon__MaPhong__6C6E1476" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhaTroModel.FK__HOPDONG__MaKT__6991A7CB" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhaTroModel.FK__HOPDONG__MaPhong__689D8392" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhaTroModel.FK__KhachTro__MaPhon__65C116E7" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhaTroModel.FK__Khutro__MaNV__5F141958" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhaTroModel.FK__PHONG__MaKhuTro__62E4AA3C" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNhaTroModel.FK__SD_DichVu__MaPho__77DFC722" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyNhaTro_DACSN"
         mc:Ignorable="d"
-        Title="DichVu" Height="550" Width="800"
+        Title="Dịch vụ" Height="550" Width="800"
         xmlns:uc="clr-namespace:QuanLyNhaTro_DACSN.UserControlBN"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
  
@@ -13,12 +13,12 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
      TextElement.FontSize="13"
-     Name="nPhongTro"
+     Name="window"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-     DataContext="{StaticResource MainVM}"
+     DataContext="{StaticResource DichVuVM}"
      ResizeMode="NoResize"
      WindowStyle="None">
     
@@ -28,10 +28,17 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <uc:UserBarUC Tag="{Binding Title, ElementName=nKhachTro}"></uc:UserBarUC>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.RowSpan="2">
+                <uc:UserMenuUC></uc:UserMenuUC>
             </Grid>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="0" Grid.Column="1">
+                <uc:UserBarUC Tag="{Binding Title, ElementName=window}"></uc:UserBarUC>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -46,13 +53,14 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBox Grid.Column="0"
-                        Margin="20"
+                        Margin="20 10"
                         materialDesign:HintAssist.Hint="Tên dịch vụ"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center"
-                        Text="{Binding DisplayNameKtr}"/>
+                        Text="{Binding TenDV, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                             <TextBox Grid.Column="1"
-                        Margin="10"
+                        Margin="20 10"
+                        Text="{Binding DonGia, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"        
                         materialDesign:HintAssist.Hint="Đơn giá"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" />
@@ -63,8 +71,8 @@
                 <materialDesign:Card Grid.Row="1" Margin="5">
                     <WrapPanel HorizontalAlignment="Center">
                         <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 5 60 5" Width="100"></Button>
-                        <Button Command="{Binding EditCommand}" Content="Xóa" Margin="0 5 60 5" Width="100"></Button>
-                        <Button Command="{Binding DeleteCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                        <Button Command="{Binding EditCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                        <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="0 5 60 5" Width="100"></Button>
                     </WrapPanel>
                 </materialDesign:Card>
 
@@ -72,12 +80,12 @@
                     <!--List dai keo qua duoc-->
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <!--Onewaytosource data thay doi thi source thay doi theo nhung khong nguoc lai-->
-                        <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                        <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Tên dịch vụ" DisplayMemberBinding="{Binding DisplayNameDV}"></GridViewColumn>
-                                    <GridViewColumn Header="Đơn giá" DisplayMemberBinding="{Binding DisplayPriceDV}"></GridViewColumn>
-                                    <GridViewColumn></GridViewColumn>
+                                    <GridViewColumn Header="Tên dịch vụ" DisplayMemberBinding="{Binding TenDV}"></GridViewColumn>
+                                    <GridViewColumn Header="Đơn giá" DisplayMemberBinding="{Binding DonGia}"></GridViewColumn>
+                                    
                                 </GridView>
                             </ListView.View>
                         </ListView>

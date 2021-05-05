@@ -23,5 +23,10 @@ namespace QuanLyNhaTro_DACSN
         {
             InitializeComponent();
         }
+
+        private void GridViewColumn_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
+        }
     }
 }

@@ -18,7 +18,7 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-     DataContext="{StaticResource MainVM}"
+     DataContext="{StaticResource NhanVienVM}"
      ResizeMode="NoResize"
      WindowStyle="None">
     
@@ -28,10 +28,17 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.RowSpan="2">
+                <uc:UserMenuUC></uc:UserMenuUC>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
                 <uc:UserBarUC Tag="{Binding Title, ElementName=nNhanVien}"></uc:UserBarUC>
             </Grid>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -50,32 +57,32 @@
                         </Grid.RowDefinitions>
 
                         <TextBox Grid.Column="0" Grid.Row="0"
-                        Margin="20"
+                        Margin="20 10"
                         materialDesign:HintAssist.Hint="Tên nhân viên"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center"
-                        Text="{Binding DisplayNameNV}"/>
+                        Text="{Binding TeNV, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         <TextBox Grid.Column="1" Grid.Row="0"
-                        Margin="20"
-                        materialDesign:HintAssist.Hint="Số chứng minh nhân dân"
+                        Margin="20 10"
+                        materialDesign:HintAssist.Hint="CMND"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Text="{Binding DisplayCMNDNV}"
+                        Text="{Binding CMND, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         VerticalAlignment="Center" />
                         <TextBox Grid.Column="1" Grid.Row="1"
-                        Margin="20"
-                        Text="{Binding DisplaySDTNV}"
+                        Margin="20 10"
+                        Text="{Binding SDT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         materialDesign:HintAssist.Hint="Số điện thoại"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" />
                         <TextBox Grid.Column="0" Grid.Row="1"
-                        Margin="20" 
-                        Text="{Binding DisplayPassNV}"
+                        Margin="20 10" 
+                        Text="{Binding MatKhau, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         materialDesign:HintAssist.Hint="Mật khẩu"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" />
                         <TextBox Grid.Column="0" Grid.Row="2"
-                        Margin="20"
-                        Text="{Binding DisplaySexNV}"
+                        Margin="20 10"
+                        Text="{Binding GioiTinh, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         materialDesign:HintAssist.Hint="Giới tính (Nữ/Nam)"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" />
@@ -85,8 +92,8 @@
                 <materialDesign:Card Grid.Row="1" Margin="5">
                     <WrapPanel HorizontalAlignment="Center">
                         <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 5 60 5" Width="100"></Button>
-                        <Button Command="{Binding EditCommand}" Content="Xóa" Margin="0 5 60 5" Width="100"></Button>
-                        <Button Command="{Binding DeleteCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                        <Button Command="{Binding EditCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                        <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="0 5 60 5" Width="100"></Button>
                     </WrapPanel>
                 </materialDesign:Card>
 
@@ -97,11 +104,11 @@
                         <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Tên nhân viên" DisplayMemberBinding="{Binding DisplayNameNV}"></GridViewColumn>
-                                    <GridViewColumn Header="Số chứng minh nhân dân" DisplayMemberBinding="{Binding DisplayNV}"></GridViewColumn>
-                                    <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding DisplaySDTNV}"></GridViewColumn>
-                                    <GridViewColumn Header="Mật khẩu" DisplayMemberBinding="{Binding DisplayPassNV}"></GridViewColumn>
-                                    <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding DisplaySexNV}"></GridViewColumn>
+                                    <GridViewColumn Header="Tên nhân viên" DisplayMemberBinding="{Binding TeNV}"></GridViewColumn>
+                                    <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding CMND}"></GridViewColumn>
+                                    <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding SDT}"></GridViewColumn>
+                                    <GridViewColumn Header="Mật khẩu" DisplayMemberBinding="{Binding MatKhau}"></GridViewColumn>
+                                    <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding GioiTinh}"></GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>

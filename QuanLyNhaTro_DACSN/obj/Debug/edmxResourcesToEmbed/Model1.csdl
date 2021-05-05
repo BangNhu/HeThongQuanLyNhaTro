@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLNhaTroModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHITIETHOADON">
+    <Key>
+      <PropertyRef Name="MaChitietHoaDon" />
+    </Key>
+    <Property Name="MaChitietHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaHoaDon" Type="Int32" Nullable="false" />
+    <Property Name="MaDV" Type="Int32" />
+    <NavigationProperty Name="HoaDon" Relationship="Self.FK__CHITIETHO__MaHoa__5FB337D6" FromRole="CHITIETHOADON" ToRole="HoaDon" />
+    <NavigationProperty Name="DICHVU" Relationship="Self.FK__CHITIETHOA__MaDV__60A75C0F" FromRole="CHITIETHOADON" ToRole="DICHVU" />
+  </EntityType>
+  <EntityType Name="CHUTRO">
+    <Key>
+      <PropertyRef Name="MaChuTro" />
+    </Key>
+    <Property Name="MaChuTro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenChuTro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NHANVIENs" Relationship="Self.FK__NHANVIEN__MaChuT__4BAC3F29" FromRole="CHUTRO" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="DICHVU">
+    <Key>
+      <PropertyRef Name="MaDV" />
+    </Key>
+    <Property Name="MaDV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonGia" Type="Double" Nullable="false" />
+    <NavigationProperty Name="CHITIETHOADONs" Relationship="Self.FK__CHITIETHOA__MaDV__60A75C0F" FromRole="DICHVU" ToRole="CHITIETHOADON" />
+  </EntityType>
+  <EntityType Name="DienNuoc">
+    <Key>
+      <PropertyRef Name="NgayGhiDienNuoc" />
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="NgayGhiDienNuoc" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MaPhong" Type="Int32" Nullable="false" />
+    <Property Name="ChiSoDien" Type="Int32" Nullable="false" />
+    <Property Name="GiaDien" Type="Double" Nullable="false" />
+    <Property Name="ChiSoNuoc" Type="Int32" Nullable="false" />
+    <Property Name="GiaNuoc" Type="Double" Nullable="false" />
+    <NavigationProperty Name="PHONG" Relationship="Self.FK__DienNuoc__MaPhon__6FE99F9F" FromRole="DienNuoc" ToRole="PHONG" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhong" Type="Int32" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayThanhToan" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TriGia" Type="Double" Nullable="false" />
+    <NavigationProperty Name="CHITIETHOADONs" Relationship="Self.FK__CHITIETHO__MaHoa__5FB337D6" FromRole="HoaDon" ToRole="CHITIETHOADON" />
+    <NavigationProperty Name="PHONG" Relationship="Self.FK__HoaDon__MaPhong__5AEE82B9" FromRole="HoaDon" ToRole="PHONG" />
+  </EntityType>
+  <EntityType Name="HOPDONG">
+    <Key>
+      <PropertyRef Name="MaHopDong" />
+    </Key>
+    <Property Name="MaHopDong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhong" Type="Int32" />
+    <Property Name="NgayBatDauHopDong" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NgayKetThucHopDong" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MaKT" Type="Int32" />
+    <Property Name="TienDatCoc" Type="Double" Nullable="false" />
+    <NavigationProperty Name="KhachTro" Relationship="Self.FK__HOPDONG__MaKT__5812160E" FromRole="HOPDONG" ToRole="KhachTro" />
+    <NavigationProperty Name="PHONG" Relationship="Self.FK__HOPDONG__MaPhong__571DF1D5" FromRole="HOPDONG" ToRole="PHONG" />
+  </EntityType>
+  <EntityType Name="KhachTro">
+    <Key>
+      <PropertyRef Name="MaKT" />
+    </Key>
+    <Property Name="MaKT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenKT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CMND" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="MaPhong" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HOPDONGs" Relationship="Self.FK__HOPDONG__MaKT__5812160E" FromRole="KhachTro" ToRole="HOPDONG" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__KhachTro__MaPhon__5441852A" FromRole="KhachTro" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="Khutro">
+    <Key>
+      <PropertyRef Name="MaKhuTro" />
+    </Key>
+    <Property Name="MaKhuTro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenKhuTro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaNV" Type="Int32" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__Khutro__MaNV__4E88ABD4" FromRole="Khutro" ToRole="NHANVIEN" />
+    <NavigationProperty Name="PHONGs" Relationship="Self.FK__PHONG__MaKhuTro__5165187F" FromRole="Khutro" ToRole="PHONG" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CMND" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="MaChuTro" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CHUTRO" Relationship="Self.FK__NHANVIEN__MaChuT__4BAC3F29" FromRole="NHANVIEN" ToRole="CHUTRO" />
+    <NavigationProperty Name="KhachTroes" Relationship="Self.FK__KhachTro__MaPhon__5441852A" FromRole="NHANVIEN" ToRole="KhachTro" />
+    <NavigationProperty Name="Khutroes" Relationship="Self.FK__Khutro__MaNV__4E88ABD4" FromRole="NHANVIEN" ToRole="Khutro" />
+  </EntityType>
+  <EntityType Name="PHONG">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="MaPhong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonGiaPhong" Type="Int32" Nullable="false" />
+    <Property Name="SoLgToiDa" Type="Int32" />
+    <Property Name="SoLgHienTai" Type="Int32" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaKhuTro" Type="Int32" />
+    <NavigationProperty Name="DienNuocs" Relationship="Self.FK__DienNuoc__MaPhon__6FE99F9F" FromRole="PHONG" ToRole="DienNuoc" />
+    <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__MaPhong__5AEE82B9" FromRole="PHONG" ToRole="HoaDon" />
+    <NavigationProperty Name="HOPDONGs" Relationship="Self.FK__HOPDONG__MaPhong__571DF1D5" FromRole="PHONG" ToRole="HOPDONG" />
+    <NavigationProperty Name="Khutro" Relationship="Self.FK__PHONG__MaKhuTro__5165187F" FromRole="PHONG" ToRole="Khutro" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__CHITIETHO__MaHoa__5FB337D6">
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
+    <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="MaHoaDon" />
+      </Principal>
+      <Dependent Role="CHITIETHOADON">
+        <PropertyRef Name="MaHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETHOA__MaDV__60A75C0F">
+    <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="0..1" />
+    <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DICHVU">
+        <PropertyRef Name="MaDV" />
+      </Principal>
+      <Dependent Role="CHITIETHOADON">
+        <PropertyRef Name="MaDV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NHANVIEN__MaChuT__4BAC3F29">
+    <End Role="CHUTRO" Type="Self.CHUTRO" Multiplicity="1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUTRO">
+        <PropertyRef Name="MaChuTro" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MaChuTro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DienNuoc__MaPhon__6FE99F9F">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
+    <End Role="DienNuoc" Type="Self.DienNuoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MaPhong" />
+      </Principal>
+      <Dependent Role="DienNuoc">
+        <PropertyRef Name="MaPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HoaDon__MaPhong__5AEE82B9">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MaPhong" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOPDONG__MaKT__5812160E">
+    <End Role="KhachTro" Type="Self.KhachTro" Multiplicity="0..1" />
+    <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachTro">
+        <PropertyRef Name="MaKT" />
+      </Principal>
+      <Dependent Role="HOPDONG">
+        <PropertyRef Name="MaKT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOPDONG__MaPhong__571DF1D5">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
+    <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MaPhong" />
+      </Principal>
+      <Dependent Role="HOPDONG">
+        <PropertyRef Name="MaPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KhachTro__MaPhon__5441852A">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="KhachTro" Type="Self.KhachTro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="KhachTro">
+        <PropertyRef Name="MaPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Khutro__MaNV__4E88ABD4">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="Khutro" Type="Self.Khutro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="Khutro">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHONG__MaKhuTro__5165187F">
+    <End Role="Khutro" Type="Self.Khutro" Multiplicity="0..1" />
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Khutro">
+        <PropertyRef Name="MaKhuTro" />
+      </Principal>
+      <Dependent Role="PHONG">
+        <PropertyRef Name="MaKhuTro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLNhaTroEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHITIETHOADONs" EntityType="Self.CHITIETHOADON" />
+    <EntitySet Name="CHUTROes" EntityType="Self.CHUTRO" />
+    <EntitySet Name="DICHVUs" EntityType="Self.DICHVU" />
+    <EntitySet Name="DienNuocs" EntityType="Self.DienNuoc" />
+    <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
+    <EntitySet Name="HOPDONGs" EntityType="Self.HOPDONG" />
+    <EntitySet Name="KhachTroes" EntityType="Self.KhachTro" />
+    <EntitySet Name="Khutroes" EntityType="Self.Khutro" />
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__CHITIETHO__MaHoa__5FB337D6" Association="Self.FK__CHITIETHO__MaHoa__5FB337D6">
+      <End Role="HoaDon" EntitySet="HoaDons" />
+      <End Role="CHITIETHOADON" EntitySet="CHITIETHOADONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETHOA__MaDV__60A75C0F" Association="Self.FK__CHITIETHOA__MaDV__60A75C0F">
+      <End Role="DICHVU" EntitySet="DICHVUs" />
+      <End Role="CHITIETHOADON" EntitySet="CHITIETHOADONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NHANVIEN__MaChuT__4BAC3F29" Association="Self.FK__NHANVIEN__MaChuT__4BAC3F29">
+      <End Role="CHUTRO" EntitySet="CHUTROes" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DienNuoc__MaPhon__6FE99F9F" Association="Self.FK__DienNuoc__MaPhon__6FE99F9F">
+      <End Role="PHONG" EntitySet="PHONGs" />
+      <End Role="DienNuoc" EntitySet="DienNuocs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HoaDon__MaPhong__5AEE82B9" Association="Self.FK__HoaDon__MaPhong__5AEE82B9">
+      <End Role="PHONG" EntitySet="PHONGs" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOPDONG__MaKT__5812160E" Association="Self.FK__HOPDONG__MaKT__5812160E">
+      <End Role="KhachTro" EntitySet="KhachTroes" />
+      <End Role="HOPDONG" EntitySet="HOPDONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOPDONG__MaPhong__571DF1D5" Association="Self.FK__HOPDONG__MaPhong__571DF1D5">
+      <End Role="PHONG" EntitySet="PHONGs" />
+      <End Role="HOPDONG" EntitySet="HOPDONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KhachTro__MaPhon__5441852A" Association="Self.FK__KhachTro__MaPhon__5441852A">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="KhachTro" EntitySet="KhachTroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Khutro__MaNV__4E88ABD4" Association="Self.FK__Khutro__MaNV__4E88ABD4">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="Khutro" EntitySet="Khutroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHONG__MaKhuTro__5165187F" Association="Self.FK__PHONG__MaKhuTro__5165187F">
+      <End Role="Khutro" EntitySet="Khutroes" />
+      <End Role="PHONG" EntitySet="PHONGs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

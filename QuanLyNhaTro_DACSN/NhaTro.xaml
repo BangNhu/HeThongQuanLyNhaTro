@@ -19,7 +19,7 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-     DataContext="{StaticResource MainVM}"
+     DataContext="{StaticResource KhuTroVM}"
      ResizeMode="NoResize"
      WindowStyle="None">
     <Grid>
@@ -27,10 +27,16 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.RowSpan="2">
+            <uc:UserMenuUC></uc:UserMenuUC></Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
             <uc:UserBarUC Tag="{Binding Title, ElementName=nNhaTro}"></uc:UserBarUC>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
@@ -44,13 +50,14 @@
                     </Grid.ColumnDefinitions>
                  
                     <TextBox Grid.Column="0"
-                        Margin="20"
+                        Margin="20 10"
                         materialDesign:HintAssist.Hint="Tên nhà trọ"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center"
-                        Text="{Binding DisplayNameKtr}"/>
+                        Text="{Binding TenKhuTro, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                     <TextBox Grid.Column="1"
-                        Margin="10"
+                        Margin="20 10"
+                        Text="{Binding DiaChi, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         materialDesign:HintAssist.Hint="Địa chỉ"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" />
@@ -60,8 +67,8 @@
             <materialDesign:Card Grid.Row="1" Margin="5">
                 <WrapPanel HorizontalAlignment="Center" >
                     <Button Command="{Binding AddCommand}" Content="Thêm" Margin="0 5 60 5" Width="100"></Button>
-                    <Button Command="{Binding EditCommand}" Content="Xóa" Margin="0 5 60 5" Width="100"></Button>
-                    <Button Command="{Binding DeleteCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="0 5 60 5" Width="100"></Button>
+                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="0 5 60 5" Width="100"></Button>
                 </WrapPanel>
             </materialDesign:Card>
 
@@ -72,9 +79,8 @@
                     <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Tên khu trọ" DisplayMemberBinding="{Binding DisplayNameKtr}"></GridViewColumn>
-                                <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding DisplayAddressKtr}"></GridViewColumn>
-                                <GridViewColumn></GridViewColumn>
+                                <GridViewColumn Header="Tên khu trọ" DisplayMemberBinding="{Binding TenKhuTro}"></GridViewColumn>
+                                <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

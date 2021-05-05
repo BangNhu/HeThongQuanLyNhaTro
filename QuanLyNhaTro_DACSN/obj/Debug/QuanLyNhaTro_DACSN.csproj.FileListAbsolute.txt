@@ -1,0 +1,112 @@
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\QuanLyNhaTro_DACSN.exe.config
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\QuanLyNhaTro_DACSN.exe
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\QuanLyNhaTro_DACSN.pdb
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\MaterialDesignColors.dll
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\MainWindow.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\App.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN_MarkupCompile.cache
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN_MarkupCompile.lref
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\App.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\MainWindow.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\ResourcesXAML\MainResources.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.g.resources
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.Properties.Resources.resources
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.csproj.GenerateResource.cache
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.csproj.CoreCompileInputs.cache
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.csproj.CopyComplete
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.exe
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.pdb
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\Login.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\Login.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\UserControlBN\UserBarUC.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\UserControlBN\UserBarUC.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\NhanVien.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\NhanVien.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\HopDong.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\KhachTro.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\HopDong.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\KhachTro.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\DichVu.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\HoaDon.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\NhaTro.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\PhongTro.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\DichVu.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\HoaDon.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\NhaTro.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\PhongTro.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\EntityFramework.dll
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\EntityFramework.xml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.csprojAssemblyReference.cache
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\DienNuoc.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\DienNuoc.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\UserControlBN\UserMenuUC.g.cs
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\UserControlBN\UserMenuUC.baml
+C:\Users\Bang Nhu\source\repos\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN_Content.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\QuanLyNhaTro_DACSN.exe.config
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\QuanLyNhaTro_DACSN.exe
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\QuanLyNhaTro_DACSN.pdb
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\EntityFramework.dll
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\EntityFramework.SqlServer.dll
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\MaterialDesignColors.dll
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\Microsoft.Expression.Interactions.dll
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\System.Windows.Interactivity.dll
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\EntityFramework.xml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\EntityFramework.SqlServer.xml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\MaterialDesignColors.pdb
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\Microsoft.Expression.Interactions.xml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\bin\Debug\System.Windows.Interactivity.xml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\DichVu.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\DienNuoc.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\HoaDon.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\HopDong.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\KhachTro.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\Login.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\MainWindow.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\NhanVien.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\NhaTro.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\PhongTro.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\UserControlBN\UserBarUC.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\UserControlBN\UserMenuUC.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\App.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN_Content.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN_MarkupCompile.cache
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN_MarkupCompile.lref
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\App.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\DichVu.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\DienNuoc.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\HoaDon.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\HopDong.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\KhachTro.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\Login.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\MainWindow.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\NhanVien.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\NhaTro.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\PhongTro.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\ResourcesXAML\MainResources.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\UserControlBN\UserBarUC.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\UserControlBN\UserMenuUC.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.g.resources
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.Properties.Resources.resources
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.csproj.GenerateResource.cache
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.csproj.CoreCompileInputs.cache
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.csproj.CopyComplete
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.exe
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.pdb
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\DanhSachHoaDon.g.cs
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\DanhSachHoaDon.baml
+D:\QuanLyNhaTro_DACSN\QuanLyNhaTro_DACSN\obj\Debug\QuanLyNhaTro_DACSN.csprojAssemblyReference.cache

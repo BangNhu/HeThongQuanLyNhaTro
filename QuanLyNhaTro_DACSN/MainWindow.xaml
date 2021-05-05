@@ -24,7 +24,7 @@
      Name="nMainWidow">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=nMainWidow}"
                           />
         </i:EventTrigger>
     </i:Interaction.Triggers>
@@ -33,10 +33,17 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.RowSpan="2">
+            <uc:UserMenuUC></uc:UserMenuUC>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
             <uc:UserBarUC Tag="{Binding Title, ElementName=nMainWidow }"></uc:UserBarUC>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -47,7 +54,7 @@
                     <Style TargetType="Button">
                         <Setter Property="Margin" Value="4 10 4 4"></Setter>
                         <Setter Property="Background" Value="#B4CDCD"></Setter>
-                       
+
                     </Style>
                 </Grid.Resources>
                 <Grid>
@@ -59,9 +66,9 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
-                    
+
                     </Grid.ColumnDefinitions>
-                    
+
                     <Button Grid.Column="0" Command="{Binding NhaTroCommand}"
                      Style="{StaticResource MaterialDesignRaisedLightButton}"
                     Height="45"
@@ -90,8 +97,9 @@
                         Margin="4 10 4 4"
                         materialDesign:ButtonAssist.CornerRadius="5"
                         ToolTip="Phòng trọ" Command="{Binding PhongTroCommand}">
-                  
+
                         <Grid>
+
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
@@ -177,10 +185,10 @@
                     <Button 
                         Style="{StaticResource MaterialDesignRaisedLightButton}"
                         Height="45"
-                        Margin="4 10 4 4"
+                        Margin="3.8,10,3.6,0"
                         materialDesign:ButtonAssist.CornerRadius="5"
                         Command="{Binding KhachTroCommand}"
-                        ToolTip="Khách trọ" Grid.Column="5"
+                        ToolTip="Khách trọ" Grid.Column="5" VerticalAlignment="Top"
                       >
                         <Grid>
                             <Grid.RowDefinitions>
@@ -203,7 +211,7 @@
                         Margin="4 10 4 4"
                         materialDesign:ButtonAssist.CornerRadius="5"
                         Command="{Binding DichVuCommand}"
-                        ToolTip="Dịch vụ" Grid.Column="6"
+                        ToolTip="Dịch vụ" Grid.Column="6" Click="Button_Click"
                       >
                         <Grid>
                             <Grid.RowDefinitions>
@@ -233,28 +241,28 @@
 
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" Margin="0 5 0 0">
-                  
-                        <WrapPanel VerticalAlignment="Center">
-                            <DatePicker
+
+                    <WrapPanel VerticalAlignment="Center">
+                        <DatePicker
                               Margin="20 0 0 0"
                               Width="200"
                               materialDesign:HintAssist.Hint="Ngày bắt đầu"
                               Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                            <DatePicker
+                        <DatePicker
                               Margin="40 0 0 0"
                               Width="200"
                               materialDesign:HintAssist.Hint="Ngày kết thúc"
                               Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                            <Button
+                        <Button
                                 Margin="40 0 0 0"
                                 Style="{StaticResource MaterialDesignOutlinedButton}"
                                 ToolTip="Lọc"
                                 Content="Lọc" />
-                        </WrapPanel>
-                 
+                    </WrapPanel>
+
                 </Grid>
                 <Grid Grid.Row="1">
-                   
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
@@ -283,7 +291,7 @@
                                     Margin="20 5 0 0"
                                     Foreground="#1C1C1C">0</TextBlock>
                             </StackPanel>
-                            
+
                         </Grid>
                     </GroupBox>
 
@@ -341,7 +349,7 @@
 
                         </Grid>
                     </GroupBox>
-                    
+
                 </Grid>
 
                 <materialDesign:Card Grid.Row="2">
@@ -351,17 +359,18 @@
                         Margin="20 10 0 0"
                         FontWeight="Medium"
                         Foreground="#363636">DANH SÁCH NHÂN VIÊN</TextBlock>
-                        <ListView>
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Header="STT"></GridViewColumn>
-                                    <GridViewColumn Header="Mã nhân viên"></GridViewColumn>
-                                    <GridViewColumn Header="Họ và tên"></GridViewColumn>
-                                    <GridViewColumn Header="Giới tính"></GridViewColumn>
-                                    <GridViewColumn Header="Số điện thoại"></GridViewColumn>
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <ListView ItemsSource="{Binding List}">
+                                <ListView.View  >
+                                    <GridView >
+
+                                        <GridViewColumn Header="Họ và tên" DisplayMemberBinding="{Binding TeNV}"></GridViewColumn>
+                                        <GridViewColumn Header="Giới tính " DisplayMemberBinding="{Binding GioiTinh}"></GridViewColumn>
+                                        <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding SDT}"></GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
                     </StackPanel>
                 </materialDesign:Card>
             </Grid>

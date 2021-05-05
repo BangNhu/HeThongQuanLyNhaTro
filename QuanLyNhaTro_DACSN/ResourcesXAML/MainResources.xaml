@@ -3,4 +3,15 @@
                     xmlns:viewmodel="clr-namespace:QuanLyNhaTro_DACSN.ViewModel"
                     xmlns:local="clr-namespace:QuanLyNhaTro_DACSN.Resources">
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+    <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+    <viewmodel:DichVuViewModel x:Key="DichVuVM"></viewmodel:DichVuViewModel>
+    <viewmodel:PhongTroViewModel x:Key="PhongTroVM"></viewmodel:PhongTroViewModel>
+    <viewmodel:KhuTroViewModel x:Key="KhuTroVM"></viewmodel:KhuTroViewModel>
+    <viewmodel:NhanVienViewModel x:Key="NhanVienVM"></viewmodel:NhanVienViewModel>
+    <viewmodel:KhachTroViewModel x:Key="KhachTroVM"></viewmodel:KhachTroViewModel>
+    <viewmodel:DienNuocViewModel x:Key="DienNuocVM"></viewmodel:DienNuocViewModel>
+    <viewmodel:HopDongViewModel x:Key="HopDongVM"></viewmodel:HopDongViewModel>
+    <viewmodel:HoaDonViewModel x:Key="HoaDonVM"></viewmodel:HoaDonViewModel>
+
+
 </ResourceDictionary>
